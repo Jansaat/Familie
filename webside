@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Familie Mustermann</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand: #f5f0e8;
+      --sand-dark: #e8e0d0;
+      --ink: #1a1a18;
+      --ink-soft: #4a4a44;
+      --ink-muted: #8a8a80;
+      --accent: #b85c38;
+      --accent-light: #f0e8e2;
+      --white: #ffffff;
+      --radius: 4px;
+      --radius-lg: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -150px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: var(--sand-dark);
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--ink-soft);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--ink);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .hero-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+    /* SECTION WRAPPER */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1rem 0 2rem;
+    }
+
+    /* FAMILY MEMBERS GRID */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .member-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--sand-dark);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .member-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .member-info {
+      padding: 1.25rem;
+    }
+
+    .member-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .member-role {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .member-bio {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .member-interests {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--sand);
+      border-radius: 100px;
+      color: var(--ink-soft);
+    }
+
+    /* GALLERY */
+    .gallery-section {
+      background: var(--white);
+      border-top: 1px solid var(--sand-dark);
+      border-bottom: 1px solid var(--sand-dark);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--sand);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--accent);
+      border: 1px solid var(--sand-dark);
+      transition: opacity 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item:hover { opacity: 0.85; }
+
+    .gallery-item.large {
+      grid-column: span 2;
+      aspect-ratio: 2/1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gallery-placeholder span {
+      font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink-muted);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 8px;
+      width: 1px;
+      background: var(--sand-dark);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 8px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateX(-4px);
+    }
+
+    .timeline-year {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-event {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--sand-dark);
+      color: var(--ink-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* EDIT HINTS */
+    .edit-hint {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      background: #fffbe6;
+      border: 1px dashed #e8c940;
+      border-radius: 4px;
+      color: #8a7000;
+      margin-left: 0.5rem;
+      font-family: monospace;
+      vertical-align: middle;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.large { grid-column: span 2; }
+      .members-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      .members-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="nav-logo">Familie Mustermann</a>
+    <ul class="nav-links">
+      <li><a href="#mitglieder">Wir</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#geschichte">Geschichte</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Willkommen bei</p>
+      <h1>Familie<br /><em>Mustermann</em></h1>
+      <!-- ✏️ "Mustermann" durch euren Familiennamen ersetzen -->
+      <p class="hero-sub">
+        Unsere Geschichte, unsere Erinnerungen, unsere Menschen –
+        an einem Ort gesammelt.
+      </p>
+      <a href="#mitglieder" class="hero-cta">Familie kennenlernen</a>
+    </div>
+  </section>
+
+  <!-- FAMILIENMITGLIEDER -->
+  <div id="mitglieder">
+    <div class="section">
+      <p class="section-label">Unsere Familie</p>
+      <h2 class="section-title">Die Menschen<br />hinter dem Namen</h2>
+      <div class="divider"></div>
+      <p class="section-intro">
+        Jeder von uns ist einzigartig – hier könnt ihr uns besser kennenlernen.
+        <!-- ✏️ Beschreibung anpassen -->
+      </p>
+
+      <div class="members-grid">
+
+        <!-- PERSON 1 – Elternteil -->
+        <div class="member-card">
+          <div class="member-avatar">
+            <!-- ✏️ Bild einfügen: <img src="fotos/max.jpg" alt="Max" /> -->
+            M
+          </div>
+          <div class="member-info">
+            <div class="member-role">Vater</div>
+            <!-- ✏️ Rolle anpassen: Mutter, Opa, Oma, Sohn, Tochter … -->
+            <h3 class="member-name">Max Mustermann</h3>
+            <p class="member-bio">
+              Liebt das Grillen am Wochenende, lange Wanderungen
+              und stundenlange Diskussionen über Fußball.
+              <!-- ✏️ Kurze Bio anpassen -->
+            </p>
+            <div class="member-interests">
+              <span class="tag">Fußball</span>
+              <span class="tag">Kochen</span>
+              <span class="tag">Wandern</span>
+              <!-- ✏️ Interessen anpassen -->
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSON 2 -->
+        <div class="member-card">
+          <div class="member-avatar" style="background: #e8f0f5; color: #3a6080;">
+            S
+          </div>
+          <div class="member-info">
+            <div class="member-role">Mutter</div>
+            <h3 class="member-name">Sandra Mustermann</h3>
+            <p class="member-bio">
+              Gartenliebhaberin, leidenschaftliche Bäckerin und die gute Seele der Familie.
+            </p>
+            <div class="member-interests">
+              <span class="tag">Garten</span>
+              <span class="tag">Backen</span>
+              <span class="tag">Lesen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSON 3 -->
+        <div class="member-card">
+          <div class="member-avatar" style="background: #edf5ec; color: #3a6b3a;">
+            L
+          </div>
+          <div class="member-info">
+            <div class="member-role">Sohn</div>
+            <h3 class="member-name">Lukas Mustermann</h3>
+            <p class="member-bio">
+              Technik-Enthusiast, Gamer und Skateboard-Anfänger –
+              immer für Abenteuer zu haben.
+            </p>
+            <div class="member-interests">
+              <span class="tag">Gaming</span>
+              <span class="tag">Skateboard</span>
+              <span class="tag">Technik</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSON 4 -->
+        <div class="member-card">
+          <div class="member-avatar" style="background: #f5edf0; color: #80405a;">
+            E
+          </div>
+          <div class="member-info">
+            <div class="member-role">Tochter</div>
+            <h3 class="member-name">Emma Mustermann</h3>
+            <p class="member-bio">
+              Zeichnet und malt in jeder freien Minute,
+              liebt Tiere über alles und möchte Tierärztin werden.
+            </p>
+            <div class="member-interests">
+              <span class="tag">Zeichnen</span>
+              <span class="tag">Tiere</span>
+              <span class="tag">Musik</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSON 5 -->
+        <div class="member-card">
+          <div class="member-avatar" style="background: #f5f0e0; color: #7a6020;">
+            O
+          </div>
+          <div class="member-info">
+            <div class="member-role">Opa</div>
+            <h3 class="member-name">Otto Mustermann</h3>
+            <p class="member-bio">
+              Ehemaliger Tischler, erzählt die besten Geschichten
+              und macht den weltbesten Apfelkuchen.
+            </p>
+            <div class="member-interests">
+              <span class="tag">Holzarbeit</span>
+              <span class="tag">Angeln</span>
+              <span class="tag">Schach</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✏️ Weitere Karten nach diesem Muster hinzufügen -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERIE -->
+  <div id="galerie" class="gallery-section">
+    <div class="section">
+      <p class="section-label">Erinnerungen</p>
+      <h2 class="section-title">Unsere Galerie</h2>
+      <div class="divider"></div>
+      <p class="section-intro">
+        Momente, die bleiben.
+        <!-- ✏️ Eigene Fotos in den Ordner "fotos/" legen und src anpassen -->
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item large">
+          <!-- ✏️ Großes Bild: <img src="fotos/urlaub.jpg" alt="Urlaub 2024" /> -->
+          <div class="gallery-placeholder">
+            <span>🏖️</span>
+            <span>Urlaub 2024</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>🎄</span><span>Weihnachten</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>🎂</span><span>Geburtstag</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>🌿</span><span>Garten</span></div>
+        </div>
+        <div class="gallery-item large">
+          <div class="gallery-placeholder"><span>🏕️</span><span>Camping-Trip</span></div>
+        </div>
+        <!-- ✏️ Weitere Galerie-Items hinzufügen -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FAMILIENGESCHICHTE / TIMELINE -->
+  <div id="geschichte">
+    <div class="section">
+      <p class="section-label">Unsere Geschichte</p>
+      <h2 class="section-title">Wichtige Momente<br />im Laufe der Zeit</h2>
+      <div class="divider"></div>
+      <p class="section-intro">
+        Meilensteine, die uns geformt haben und die wir nie vergessen werden.
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-year">1992</div>
+          <div class="timeline-event">Max und Sandra lernen sich kennen</div>
+          <div class="timeline-desc">
+            Beim Stadtfest in Oldenburg – eine Begegnung, die alles verändert hat.
+            <!-- ✏️ Eigene Geschichte eintragen -->
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1996</div>
+          <div class="timeline-event">Hochzeit</div>
+          <div class="timeline-desc">
+            Ein unvergesslicher Sommertag mit der ganzen Familie und besten Freunden.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1999</div>
+          <div class="timeline-event">Lukas wird geboren</div>
+          <div class="timeline-desc">
+            Unser erstes Kind – und von Anfang an voller Energie und Neugier.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2003</div>
+          <div class="timeline-event">Emma kommt zur Welt</div>
+          <div class="timeline-desc">
+            Und damit war unsere Familie komplett – fast. Hund Bruno kam noch dazu.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2010</div>
+          <div class="timeline-event">Umzug nach Westerstede</div>
+          <div class="timeline-desc">
+            Neues Haus, neuer Garten, neue Abenteuer. Ein Neuanfang mit Wurzeln.
+            <!-- ✏️ Ortsnamen und Ereignis anpassen -->
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-event">Diese Webseite geht online</div>
+          <div class="timeline-desc">
+            Die Geschichte unserer Familie – jetzt für alle zugänglich.
+          </div>
+        </div>
+
+        <!-- ✏️ Weitere Ereignisse nach diesem Muster hinzufügen -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Erstellt mit ❤️ von Familie Mustermann &nbsp;·&nbsp;
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.6;">
+      Gehostet auf GitHub Pages
+    </p>
+  </footer>
+
+</body>
+</html>
