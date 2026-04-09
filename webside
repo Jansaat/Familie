@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Familie Mustermann</title>
+  <title>Familie Saathoff</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -32,7 +32,6 @@
       line-height: 1.7;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -73,7 +72,6 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -135,7 +133,7 @@
     .hero-sub {
       font-size: 1.1rem;
       color: var(--ink-soft);
-      max-width: 480px;
+      max-width: 620px;
       margin: 0 auto 2.5rem;
     }
 
@@ -154,7 +152,6 @@
 
     .hero-cta:hover { background: var(--accent); transform: translateY(-1px); }
 
-    /* SECTION WRAPPER */
     .section {
       padding: 6rem 2rem;
       max-width: 1100px;
@@ -181,11 +178,10 @@
     .section-intro {
       font-size: 1rem;
       color: var(--ink-soft);
-      max-width: 600px;
+      max-width: 700px;
       margin-bottom: 3.5rem;
     }
 
-    /* DIVIDER */
     .divider {
       width: 48px;
       height: 2px;
@@ -193,7 +189,6 @@
       margin: 1rem 0 2rem;
     }
 
-    /* FAMILY MEMBERS GRID */
     .members-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -276,7 +271,6 @@
       color: var(--ink-soft);
     }
 
-    /* GALLERY */
     .gallery-section {
       background: var(--white);
       border-top: 1px solid var(--sand-dark);
@@ -334,7 +328,6 @@
       color: var(--ink-muted);
     }
 
-    /* TIMELINE */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -385,7 +378,6 @@
       color: var(--ink-soft);
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem 2rem;
@@ -396,21 +388,6 @@
 
     footer a { color: var(--accent); text-decoration: none; }
 
-    /* EDIT HINTS */
-    .edit-hint {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.15rem 0.5rem;
-      background: #fffbe6;
-      border: 1px dashed #e8c940;
-      border-radius: 4px;
-      color: #8a7000;
-      margin-left: 0.5rem;
-      font-family: monospace;
-      vertical-align: middle;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -425,9 +402,8 @@
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
-    <a href="#" class="nav-logo">Familie Mustermann</a>
+    <a href="#" class="nav-logo">Familie Saathoff</a>
     <ul class="nav-links">
       <li><a href="#mitglieder">Wir</a></li>
       <li><a href="#galerie">Galerie</a></li>
@@ -435,250 +411,253 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <p class="hero-eyebrow">Willkommen bei</p>
-      <h1>Familie<br /><em>Mustermann</em></h1>
-      <!-- ✏️ "Mustermann" durch euren Familiennamen ersetzen -->
+      <h1>Familie<br /><em>Saathoff</em></h1>
       <p class="hero-sub">
         Unsere Geschichte, unsere Erinnerungen, unsere Menschen –
-        an einem Ort gesammelt.
+        mit Liebe, Zusammenhalt, Glauben und ganz viel Familienglück an einem Ort gesammelt.
       </p>
       <a href="#mitglieder" class="hero-cta">Familie kennenlernen</a>
     </div>
   </section>
 
-  <!-- FAMILIENMITGLIEDER -->
   <div id="mitglieder">
     <div class="section">
       <p class="section-label">Unsere Familie</p>
-      <h2 class="section-title">Die Menschen<br />hinter dem Namen</h2>
+      <h2 class="section-title">Die Menschen<br />hinter unserem Namen</h2>
       <div class="divider"></div>
       <p class="section-intro">
-        Jeder von uns ist einzigartig – hier könnt ihr uns besser kennenlernen.
-        <!-- ✏️ Beschreibung anpassen -->
+        Jeder von uns ist auf seine eigene Weise besonders. Gemeinsam sind wir Familie Saathoff –
+        verbunden durch Liebe, Vertrauen, gemeinsame Erlebnisse und den Wunsch, füreinander da zu sein.
       </p>
 
       <div class="members-grid">
 
-        <!-- PERSON 1 – Elternteil -->
         <div class="member-card">
           <div class="member-avatar">
-            <!-- ✏️ Bild einfügen: <img src="fotos/max.jpg" alt="Max" /> -->
-            M
+            <!-- Beispiel für Bild:
+            <img src="fotos/jan.jpg" alt="Jan Saathoff" />
+            -->
+            J
           </div>
           <div class="member-info">
             <div class="member-role">Vater</div>
-            <!-- ✏️ Rolle anpassen: Mutter, Opa, Oma, Sohn, Tochter … -->
-            <h3 class="member-name">Max Mustermann</h3>
+            <h3 class="member-name">Jan Saathoff</h3>
             <p class="member-bio">
-              Liebt das Grillen am Wochenende, lange Wanderungen
-              und stundenlange Diskussionen über Fußball.
-              <!-- ✏️ Kurze Bio anpassen -->
+              Jan ist ein Mensch mit Herz, Verantwortung und Stärke. Sein größter Stolz ist seine Familie.
+              Er liebt es, für die Menschen da zu sein, die ihm anvertraut sind, und verbindet
+              Verlässlichkeit, Tiefe und einen starken Familiensinn.
             </p>
             <div class="member-interests">
-              <span class="tag">Fußball</span>
-              <span class="tag">Kochen</span>
-              <span class="tag">Wandern</span>
-              <!-- ✏️ Interessen anpassen -->
+              <span class="tag">Familie</span>
+              <span class="tag">Verantwortung</span>
+              <span class="tag">Zusammenhalt</span>
             </div>
           </div>
         </div>
 
-        <!-- PERSON 2 -->
         <div class="member-card">
           <div class="member-avatar" style="background: #e8f0f5; color: #3a6080;">
-            S
+            R
           </div>
           <div class="member-info">
             <div class="member-role">Mutter</div>
-            <h3 class="member-name">Sandra Mustermann</h3>
+            <h3 class="member-name">Rahel Saathoff</h3>
             <p class="member-bio">
-              Gartenliebhaberin, leidenschaftliche Bäckerin und die gute Seele der Familie.
+              Rahel ist eine wundervolle, liebevolle Ehefrau, Mutter und Geliebte.
+              Sie ist hilfsbereit, nett und freundlich und prägt das Zuhause mit Wärme,
+              Güte und einem großen Herzen für ihre Familie.
             </p>
             <div class="member-interests">
-              <span class="tag">Garten</span>
-              <span class="tag">Backen</span>
-              <span class="tag">Lesen</span>
+              <span class="tag">Liebevoll</span>
+              <span class="tag">Hilfsbereit</span>
+              <span class="tag">Freundlich</span>
             </div>
           </div>
         </div>
 
-        <!-- PERSON 3 -->
         <div class="member-card">
           <div class="member-avatar" style="background: #edf5ec; color: #3a6b3a;">
-            L
+            M
+          </div>
+          <div class="member-info">
+            <div class="member-role">Tochter</div>
+            <h3 class="member-name">Maira Saathoff</h3>
+            <p class="member-bio">
+              Maira ist 12,5 Jahre alt und eine tolle Tochter. Sie weiß, was sie kann,
+              ist selbstbewusst, lebensfroh und bringt mit ihrer Art viel Energie,
+              Persönlichkeit und Freude in die Familie.
+            </p>
+            <div class="member-interests">
+              <span class="tag">Selbstbewusst</span>
+              <span class="tag">Lebensfroh</span>
+              <span class="tag">Stark</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-avatar" style="background: #f5edf0; color: #80405a;">
+            B
           </div>
           <div class="member-info">
             <div class="member-role">Sohn</div>
-            <h3 class="member-name">Lukas Mustermann</h3>
+            <h3 class="member-name">Bento Saathoff</h3>
             <p class="member-bio">
-              Technik-Enthusiast, Gamer und Skateboard-Anfänger –
-              immer für Abenteuer zu haben.
+              Bento ist 5 ½ Jahre alt und der coolste Sohn von Welt. Er liebt Lego,
+              Ninjago, Pokémon und Hot Wheels. Mit seiner Begeisterung, seinem Spiel
+              und seiner fröhlichen Art macht er das Familienleben bunt und lebendig.
             </p>
             <div class="member-interests">
-              <span class="tag">Gaming</span>
-              <span class="tag">Skateboard</span>
-              <span class="tag">Technik</span>
+              <span class="tag">Lego</span>
+              <span class="tag">Ninjago</span>
+              <span class="tag">Pokémon</span>
+              <span class="tag">Hot Wheels</span>
             </div>
           </div>
         </div>
 
-        <!-- PERSON 4 -->
         <div class="member-card">
-          <div class="member-avatar" style="background: #f5edf0; color: #80405a;">
+          <div class="member-avatar" style="background: #f5f0e0; color: #7a6020;">
             E
           </div>
           <div class="member-info">
             <div class="member-role">Tochter</div>
-            <h3 class="member-name">Emma Mustermann</h3>
+            <h3 class="member-name">Eva Saathoff</h3>
             <p class="member-bio">
-              Zeichnet und malt in jeder freien Minute,
-              liebt Tiere über alles und möchte Tierärztin werden.
+              Eva ist eine tolle, selbstbewusste Tochter. Sie bereichert die Familie
+              mit ihrer eigenen starken Persönlichkeit und bringt schon früh etwas ganz
+              Besonderes mit, das man einfach spürt.
             </p>
             <div class="member-interests">
-              <span class="tag">Zeichnen</span>
-              <span class="tag">Tiere</span>
-              <span class="tag">Musik</span>
+              <span class="tag">Selbstbewusst</span>
+              <span class="tag">Besonders</span>
+              <span class="tag">Familienglück</span>
             </div>
           </div>
         </div>
-
-        <!-- PERSON 5 -->
-        <div class="member-card">
-          <div class="member-avatar" style="background: #f5f0e0; color: #7a6020;">
-            O
-          </div>
-          <div class="member-info">
-            <div class="member-role">Opa</div>
-            <h3 class="member-name">Otto Mustermann</h3>
-            <p class="member-bio">
-              Ehemaliger Tischler, erzählt die besten Geschichten
-              und macht den weltbesten Apfelkuchen.
-            </p>
-            <div class="member-interests">
-              <span class="tag">Holzarbeit</span>
-              <span class="tag">Angeln</span>
-              <span class="tag">Schach</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ✏️ Weitere Karten nach diesem Muster hinzufügen -->
 
       </div>
     </div>
   </div>
 
-  <!-- GALERIE -->
   <div id="galerie" class="gallery-section">
     <div class="section">
       <p class="section-label">Erinnerungen</p>
       <h2 class="section-title">Unsere Galerie</h2>
       <div class="divider"></div>
       <p class="section-intro">
-        Momente, die bleiben.
-        <!-- ✏️ Eigene Fotos in den Ordner "fotos/" legen und src anpassen -->
+        Momente, die bleiben. Augenblicke aus unserem Leben, die unser Familienherz füllen
+        und die Geschichte von Familie Saathoff sichtbar machen.
       </p>
 
       <div class="gallery-grid">
         <div class="gallery-item large">
-          <!-- ✏️ Großes Bild: <img src="fotos/urlaub.jpg" alt="Urlaub 2024" /> -->
+          <!-- <img src="fotos/familie.jpg" alt="Familie Saathoff" /> -->
           <div class="gallery-placeholder">
-            <span>🏖️</span>
-            <span>Urlaub 2024</span>
+            <span>👨‍👩‍👧‍👦</span>
+            <span>Familienfoto</span>
           </div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-placeholder"><span>🎄</span><span>Weihnachten</span></div>
+          <div class="gallery-placeholder"><span>💍</span><span>Liebe</span></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-placeholder"><span>🎂</span><span>Geburtstag</span></div>
+          <div class="gallery-placeholder"><span>👶</span><span>Eva</span></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-placeholder"><span>🌿</span><span>Garten</span></div>
+          <div class="gallery-placeholder"><span>🧸</span><span>Kindheit</span></div>
         </div>
         <div class="gallery-item large">
-          <div class="gallery-placeholder"><span>🏕️</span><span>Camping-Trip</span></div>
+          <div class="gallery-placeholder"><span>🏡</span><span>Unser Zuhause</span></div>
         </div>
-        <!-- ✏️ Weitere Galerie-Items hinzufügen -->
       </div>
     </div>
   </div>
 
-  <!-- FAMILIENGESCHICHTE / TIMELINE -->
   <div id="geschichte">
     <div class="section">
       <p class="section-label">Unsere Geschichte</p>
       <h2 class="section-title">Wichtige Momente<br />im Laufe der Zeit</h2>
       <div class="divider"></div>
       <p class="section-intro">
-        Meilensteine, die uns geformt haben und die wir nie vergessen werden.
+        Meilensteine, die uns geprägt haben, und Erinnerungen, die unser Familienleben bis heute tragen.
       </p>
 
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="timeline-year">1992</div>
-          <div class="timeline-event">Max und Sandra lernen sich kennen</div>
+          <div class="timeline-year">15.07.2007</div>
+          <div class="timeline-event">Jan und Rahel kommen zusammen</div>
           <div class="timeline-desc">
-            Beim Stadtfest in Oldenburg – eine Begegnung, die alles verändert hat.
-            <!-- ✏️ Eigene Geschichte eintragen -->
+            An diesem Tag begann eure gemeinsame Geschichte – der Anfang einer Beziehung,
+            aus der Liebe, Vertrauen und später eine Familie gewachsen sind.
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-year">1996</div>
-          <div class="timeline-event">Hochzeit</div>
+          <div class="timeline-year">04.04.</div>
+          <div class="timeline-event">Heiratsantrag auf dem Empire State Building</div>
           <div class="timeline-desc">
-            Ein unvergesslicher Sommertag mit der ganzen Familie und besten Freunden.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">1999</div>
-          <div class="timeline-event">Lukas wird geboren</div>
-          <div class="timeline-desc">
-            Unser erstes Kind – und von Anfang an voller Energie und Neugier.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">2003</div>
-          <div class="timeline-event">Emma kommt zur Welt</div>
-          <div class="timeline-desc">
-            Und damit war unsere Familie komplett – fast. Hund Bruno kam noch dazu.
+            Ein ganz besonderer Moment an einem besonderen Ort – hoch über New York
+            wurde aus Liebe ein gemeinsames Versprechen für die Zukunft.
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-year">2010</div>
-          <div class="timeline-event">Umzug nach Westerstede</div>
+          <div class="timeline-event">Hochzeit</div>
           <div class="timeline-desc">
-            Neues Haus, neuer Garten, neue Abenteuer. Ein Neuanfang mit Wurzeln.
-            <!-- ✏️ Ortsnamen und Ereignis anpassen -->
+            Aus eurer Liebe wurde Ehe. Ein bedeutender Schritt, der eure Verbindung
+            sichtbar gemacht und das Fundament für eure Familie weiter gestärkt hat.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2013</div>
+          <div class="timeline-event">Maira wird geboren</div>
+          <div class="timeline-desc">
+            Mit Maira kam eine starke, lebensfrohe und selbstbewusste Tochter in eure Familie,
+            die seitdem ihren ganz eigenen Platz in eurem Leben hat.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-event">Bento wird geboren</div>
+          <div class="timeline-desc">
+            Mit Bento wurde eure Familie um einen fröhlichen kleinen Sohn reicher,
+            der mit Fantasie, Spiel und Begeisterung jeden Tag besonders macht.
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-year">2024</div>
-          <div class="timeline-event">Diese Webseite geht online</div>
+          <div class="timeline-event">Eva wird geboren</div>
           <div class="timeline-desc">
-            Die Geschichte unserer Familie – jetzt für alle zugänglich.
+            Mit Eva kam noch einmal neues Familienglück dazu – eine tolle und
+            selbstbewusste Tochter, die euer Leben auf ihre eigene Weise bereichert.
           </div>
         </div>
 
-        <!-- ✏️ Weitere Ereignisse nach diesem Muster hinzufügen -->
+        <div class="timeline-item">
+          <div class="timeline-year">Heute</div>
+          <div class="timeline-event">Familie Saathoff</div>
+          <div class="timeline-desc">
+            Heute seid ihr eine Familie mit Geschichte, Liebe, Charakter und vielen Erinnerungen –
+            verbunden durch Nähe, Vertrauen und das gemeinsame Leben.
+          </div>
+        </div>
 
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p>
-      Erstellt mit ❤️ von Familie Mustermann &nbsp;·&nbsp;
+      Erstellt mit ❤️ von Familie Saathoff &nbsp;·&nbsp;
       <a href="https://github.com" target="_blank">GitHub</a>
     </p>
     <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.6;">
